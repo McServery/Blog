@@ -58,18 +58,18 @@ Zero.define(
                     { style: styles.postDetailsTable },
                     ZRow({
                         icon: "person",
-                        key: "author",
+                        key: "Autor",
                         value: this.props.name,
                     }),
                     ZRow({
                         icon: "calendar",
-                        key: "published",
+                        key: "Publikováno",
                         value: this.props.date,
                     }),
                     ZRow({
                         icon: "file",
-                        key: "words",
-                        value: `approx. ${this.props.words}`,
+                        key: "slov",
+                        value: `cca. ${this.props.words}`,
                     })
                 )
             );

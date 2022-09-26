@@ -142,7 +142,7 @@ Zero.define(
                 },
                 h.h1(
                     { style: styles.postSummaryHeading },
-                    "Table of Contents",
+                    "Obsah",
                     h.ul(
                         {
                             class: "summaryList",

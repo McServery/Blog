@@ -70,9 +70,9 @@ Zero.define(
                             target: "_blank",
                             rel: "noreferrer",
                         },
-                        "Nathan Pham"
+                        "mcservery.eu"
                     ),
-                    ". Can be used freely without attribution."
+                    ". © 2022"
                 )
             );
         }

@@ -41,7 +41,7 @@ Zero.define(
         render() {
             return h.div(
                 { style: styles.articleWrapper },
-                h.h2({ style: styles.articleHeading }, "Articles"),
+                h.h2({ style: styles.articleHeading }, "Příspěvky"),
                 h.div(
                     { style: styles.articleGrid, class: "articleGrid" },
                     h.slot()
