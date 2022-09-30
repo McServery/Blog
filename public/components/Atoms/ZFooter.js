@@ -66,7 +66,7 @@ Zero.define(
                     "Created by ",
                     h.a(
                         {
-                            href: "https://nathanpham.me",
+                            href: "https://mcservery.eu",
                             target: "_blank",
                             rel: "noreferrer",
                         },

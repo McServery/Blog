@@ -33,7 +33,7 @@ Zero.define(
                         {},
                         h.zLink(
                             { href: "/" },
-                            h.h1({ style: styles.headerLink }, "mcservery.eu Blog")
+                            h.h1({ style: styles.headerLink }, "McServery.eu/Blog")
                         )
                     ),
                     h.zSearch()

@@ -27,7 +27,7 @@ export default class ZRouter extends Zero {
     }
 
     static setTitle(title = "Home") {
-        document.title = `Zero Framework Blog | ${title}`;
+        document.title = `McServery.eu Blog | ${title}`;
     }
 
     static getMatch(routes) {
