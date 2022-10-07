@@ -7,7 +7,7 @@ tags: Oznámení, Server list
 
 Budou tomu již 2 roky co web [mcservery.eu](http://mcservery.eu/) je na scéně Minecraft server listů. Web si již po té době zasloužil nový přívětivější design a také funkce které zvýší užitečnou hodnotu stránek.
 
-![Úvodní stránka v novém designu.](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/2b88b20e-0714-4abc-9f26-72d123bc0e6e/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220926%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220926T000810Z&X-Amz-Expires=86400&X-Amz-Signature=01d279b8b48cf9917b192d25878700162d52d4f3e7ac5979c1355f23ef25d7de&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![Úvodní stránka v novém designu.](https://mcservery.eu/blog/images/2022/07/homepage-new.png)
 
 Úvodní stránka v novém designu.
 
@@ -33,7 +33,7 @@ Pokud jsi [Discord](http://discord.com) dosud nepoužíval - je zdarma, bezpečn
 
 **Pozvánka:** [discord.mcservery.eu](http://discord.mcservery.eu)
 
-![http://dev.mcservery.eu/frontend/assets/img/discord.webp](http://dev.mcservery.eu/frontend/assets/img/discord.webp)
+![discord.mcservery.eu](https://mcservery.eu/assets/img/discord.webp)
 
 ## Nevíš si rady? Je tu centrum nápovědy.
 
@@ -41,4 +41,4 @@ Každý komplexní projekt by měl mít svojí nápovědu, tak aby uživatelé n
 
 S tím jaký mám do budoucna záměr s projektem [mcservery.eu](http://mcservery.eu) bylo nutné vytvořit přehlednou znalostní bázi. Tak aby i budoucí funkce byly dobře zmapovány a uživatelé neměli problém s jejich používáním. 
 
-![Untitled](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/3df0b364-8633-4f39-b71e-9978b5d362d6/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220926%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220926T000937Z&X-Amz-Expires=86400&X-Amz-Signature=85678266dee2e6b4abe807e572387c846ec4d6e692efd205a69fa283f47d37d0&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22&x-id=GetObject)
+![help.mcservery.eu](https://mcservery.eu/blog/images/2022/07/helpcenter.png)
