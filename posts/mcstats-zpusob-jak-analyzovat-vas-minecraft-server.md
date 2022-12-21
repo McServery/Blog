@@ -1,7 +1,7 @@
 ---
 title: MCStats - způsob, jak analyzovat Váš Minecrat server.
 emoji: 🔎
-date: 21/12/2022
+date: 12/21/2022
 tags: Oznámení, server list, Minecraft
 ---
 Vybudovat komunitu na Minecraft serveru může být těžké, sám jsem před pár lety spravoval vlastní Minecraft server. Neměl jsem ponětí, odkud hráči přišli nebo jak dlouho na serveru zůstali.
