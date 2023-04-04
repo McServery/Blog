@@ -1,0 +1,26 @@
+{
+  "url": "http://192.168.1.2:2368/",
+  "server": {
+    "port": 2368,
+    "host": "0.0.0.0"
+  },
+  "database": {
+    "client": "sqlite3",
+    "connection": {
+      "filename": "C:\\Users\\Dan\\Documents\\GitHub\\blog\\content\\data\\ghost-local.db"
+    }
+  },
+  "mail": {
+    "transport": "Direct"
+  },
+  "logging": {
+    "transports": [
+      "file",
+      "stdout"
+    ]
+  },
+  "process": "local",
+  "paths": {
+    "contentPath": "C:\\Users\\Dan\\Documents\\GitHub\\blog\\content"
+  }
+}
