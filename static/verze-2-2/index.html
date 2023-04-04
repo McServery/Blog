@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verze: 2.2 Claim serveru a přepracovaný Votifier</title>
+    <link rel="stylesheet" href="../assets/built/screen.css@v=2761a83b65.css">
+
+    <link rel="icon" href="http://192.168.1.2:2368/content/images/size/w256h256/2023/04/logo-1.PNG" type="image/png" />
+    <link rel="canonical" href="http://192.168.1.2:2368/verze-2-2/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="mcservery.eu/blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Verze: 2.2 Claim serveru a přepracovaný Votifier" />
+    <meta property="og:description" content="Ahoj, dnes byla konečně vydána velká aktualizace server listu, která přináší mnoho významných změn po dlouhé době. Jak jsem slíbil při minulém menším updatu na začátku tohoto roku, adresy serverů byly změněny podle přání uživatelů. Ale to není všechno! Tuto novou funkci jsem si držel v tajnosti, ale nyní ji" />
+    <meta property="og:url" content="http://192.168.1.2:2368/verze-2-2/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1620121692029-d088224ddc74?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fG1hYyUyMHdhbGxwYXBlcnxlbnwwfHx8fDE2ODA1NjU2NTI&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000" />
+    <meta property="article:published_time" content="2023-04-04T01:00:00.000Z" />
+    <meta property="article:modified_time" content="2023-04-04T01:21:58.000Z" />
+    <meta property="article:tag" content="Server list" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Verze: 2.2 Claim serveru a přepracovaný Votifier" />
+    <meta name="twitter:description" content="Ahoj, dnes byla konečně vydána velká aktualizace server listu, která přináší mnoho významných změn po dlouhé době. Jak jsem slíbil při minulém menším updatu na začátku tohoto roku, adresy serverů byly změněny podle přání uživatelů. Ale to není všechno! Tuto novou funkci jsem si držel v tajnosti, ale nyní ji" />
+    <meta name="twitter:url" content="http://192.168.1.2:2368/verze-2-2/" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1620121692029-d088224ddc74?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fG1hYyUyMHdhbGxwYXBlcnxlbnwwfHx8fDE2ODA1NjU2NTI&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="mcservery.eu" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Server list" />
+    <meta name="twitter:site" content="@ghost" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "mcservery.eu/blog",
+        "url": "http://192.168.1.2:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://192.168.1.2:2368/content/images/2023/04/logo.PNG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "mcservery.eu",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://192.168.1.2:2368/content/images/2023/04/logo-2.PNG",
+            "width": 125,
+            "height": 125
+        },
+        "url": "http://192.168.1.2:2368/author/mcservery/",
+        "sameAs": [
+            "http://mcservery.eu"
+        ]
+    },
+    "headline": "Verze: 2.2 Claim serveru a přepracovaný Votifier",
+    "url": "http://192.168.1.2:2368/verze-2-2/",
+    "datePublished": "2023-04-04T01:00:00.000Z",
+    "dateModified": "2023-04-04T01:21:58.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1620121692029-d088224ddc74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDR8fG1hYyUyMHdhbGxwYXBlcnxlbnwwfHx8fDE2ODA1NjU2NTI&ixlib=rb-4.0.3&q=80&w=2000",
+        "width": 2000,
+        "height": 1125
+    },
+    "keywords": "Server list",
+    "description": "Ahoj, dnes byla konečně vydána velká aktualizace server listu, která přináší mnoho významných změn po dlouhé době. Jak jsem slíbil při minulém menším updatu na začátku tohoto roku, adresy serverů byly změněny podle přání uživatelů. Ale to není všechno! Tuto novou funkci jsem si držel v tajnosti, ale nyní ji mohu konečně odhalit - je možné převést vlastnictví serveru bez kontaktování podpory. To by mělo usnadnit správu serverů pro naše uživatele. Pojďme se tedy podívat na všechny další úpravy.\n\n\n",
+    "mainEntityOfPage": "http://192.168.1.2:2368/verze-2-2/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.41" />
+    <link rel="alternate" type="application/rss+xml" title="mcservery.eu/blog" href="http://192.168.1.2:2368/rss/" />
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="a07570b3176d7d3a5246ef98f9" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="http://192.168.1.2:2368/" crossorigin="anonymous"></script>
+    <link href="http://192.168.1.2:2368/webmentions/receive/" rel="webmention" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css" integrity="sha512-kSwGoyIkfz4+hMo5jkJngSByil9jxJPKbweYec/UgS+S1EgE45qm4Gea7Ks2oxQ7qiYyyZRn66A9df2lMtjIsw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-Regular.woff2) format("woff2");
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: italic;
+    font-weight: 400;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-Italic.woff2) format("woff2");
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 450;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-Medium.woff2) format("woff2");
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-SemiBold.woff2) format("woff2");
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 600;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-Bold.woff2) format("woff2");
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 800;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-ExtraBold.woff2) format("woff2");
+    font-display: swap
+}
+    
+body {
+    font-family: "Alliance No.1" !important;
+}
+
+.gh-article-title {
+    font-family: "Alliance No.1" !important;
+	font-size: 48px !important;
+    line-height: 52px !important;
+    letter-spacing: -0.03em !important;
+    font-weight: 800 !important;
+}
+    
+.gh-article-tag {
+    font-size: 16px !important;
+    line-height: 24px !important;
+}
+.gh-card-footer {
+    font-family: ui-monospace, "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace !important;
+    line-height: 20px !important;
+}
+
+.gh-article-meta-inner {
+    font-family: ui-monospace, "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace !important;
+}
+</style><style>:root {--ghost-accent-color: #377dff;}</style>
+</head>
+
+<body class="post-template tag-serverlist has-full-image is-head-transparent is-head-left-logo">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    
+                    <a class="gh-head-logo" href="http://192.168.1.2:2368">
+                            <img src="http://192.168.1.2:2368/content/images/2023/04/logo.PNG" alt="mcservery.eu/blog">
+                    </a>
+                    
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-hlavni-stranky"><a href="https://mcservery.eu">Hlavní stránky</a></li>
+    <li class="nav-blog"><a href="http://192.168.1.2:2368/">Blog</a></li>
+    <li class="nav-vsechny-clanky"><a href="http://192.168.1.2:2368/page/2/">Všechny články</a></li>
+    <li class="nav-o-nas"><a href="http://192.168.1.2:2368/about/">O nás</a></li>
+    <li class="nav-server-list"><a href="https://mcservery.eu/servers.php">Server list</a></li>
+    <li class="nav-discord"><a href="https://discord.mcservery.eu">Discord</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            </div>
+        </div>
+    </header>
+
+    
+        <section class="gh-cover loading gh-outer">
+            <img
+                class="gh-cover-image"
+                srcset="https://images.unsplash.com/photo-1620121692029-d088224ddc74?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fG1hYyUyMHdhbGxwYXBlcnxlbnwwfHx8fDE2ODA1NjU2NTI&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                        https://images.unsplash.com/photo-1620121692029-d088224ddc74?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fG1hYyUyMHdhbGxwYXBlcnxlbnwwfHx8fDE2ODA1NjU2NTI&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                        https://images.unsplash.com/photo-1620121692029-d088224ddc74?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fG1hYyUyMHdhbGxwYXBlcnxlbnwwfHx8fDE2ODA1NjU2NTI&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                        https://images.unsplash.com/photo-1620121692029-d088224ddc74?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fG1hYyUyMHdhbGxwYXBlcnxlbnwwfHx8fDE2ODA1NjU2NTI&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                        https://images.unsplash.com/photo-1620121692029-d088224ddc74?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fG1hYyUyMHdhbGxwYXBlcnxlbnwwfHx8fDE2ODA1NjU2NTI&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                sizes="100vw"
+                src="https://images.unsplash.com/photo-1620121692029-d088224ddc74?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDR8fG1hYyUyMHdhbGxwYXBlcnxlbnwwfHx8fDE2ODA1NjU2NTI&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200"
+                alt=""
+            >
+
+            <div class="gh-cover-content">
+                    <a class="gh-article-tag" href="http://192.168.1.2:2368/tag/serverlist/">Server list</a>
+
+                <h1 class="gh-cover-title">Verze: 2.2 Claim serveru a přepracovaný Votifier</h1>
+            </div>
+        </section>
+
+<main class="gh-main">
+        <article class="gh-article post tag-serverlist featured">
+            <header class="gh-article-header gh-canvas">
+                    <aside class="gh-article-sidebar">
+
+        <div class="gh-author-image-list">
+                <a class="gh-author-image" href="../author/mcservery/index.html">
+                        <img src="http://192.168.1.2:2368/content/images/2023/04/logo-2.PNG" alt="mcservery.eu">
+                </a>
+        </div>
+
+        <div class="gh-author-name-list">
+                <h4 class="gh-author-name">
+                    <a href="../author/mcservery/index.html">mcservery.eu</a>
+                </h4>
+                
+        </div>
+
+        <div class="gh-article-meta">
+            <div class="gh-article-meta-inner">
+                <time class="gh-article-date" datetime="2023-04-04">4. dub 2023</time>
+                    <span class="gh-article-meta-sep"></span>
+                    <span class="gh-article-length">4 min</span>
+            </div>
+        </div>
+
+    </aside>
+
+            </header>
+
+            <section class="gh-content gh-canvas">
+                <p>Ahoj, dnes byla konečně vydána velká aktualizace server listu, která přináší mnoho významných změn po dlouhé době. Jak jsem slíbil při minulém menším updatu na začátku tohoto roku, adresy serverů byly změněny podle přání uživatelů. Ale to není všechno! Tuto novou funkci jsem si držel v tajnosti, ale nyní ji mohu konečně odhalit - je možné převést vlastnictví serveru bez kontaktování podpory. To by mělo usnadnit správu serverů pro naše uživatele. Pojďme se tedy podívat na všechny další úpravy.</p><h3 id="%E2%9A%A1%EF%B8%8F-na%C4%8D%C3%ADt%C3%A1n%C3%AD-seznamu-server%C5%AF-bylo-zrychleno-o-70">⚡️ Načítání seznamu serverů bylo zrychleno o 70%</h3><p>Je to zhruba přes rok, kdy byla provedena anketa kde jsem se uživatelů ptal, co by na mcservery.eu zlepšili. Častou odpovědí byla rychlost. Vím je to dlouhá doba, tato změna měli přijít dříve. Nicméně seznam serverů se již načítá rychleji, a to v průměru o 70 % </p><p>Doufám, že v dohledné době by se mohlo podařit toto načítání ještě zrychlit.</p><figure class="kg-card kg-gallery-card kg-width-wide kg-card-hascaption"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="http://192.168.1.2:2368/content/images/2023/04/Rychlost-pr-ed.png" width="2000" height="1231" loading="lazy" alt srcset="http://192.168.1.2:2368/content/images/size/w600/2023/04/Rychlost-pr-ed.png 600w, http://192.168.1.2:2368/content/images/size/w1000/2023/04/Rychlost-pr-ed.png 1000w, http://192.168.1.2:2368/content/images/size/w1600/2023/04/Rychlost-pr-ed.png 1600w, http://192.168.1.2:2368/content/images/size/w2400/2023/04/Rychlost-pr-ed.png 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="http://192.168.1.2:2368/content/images/2023/04/rychlost-po.png" width="2000" height="1231" loading="lazy" alt srcset="http://192.168.1.2:2368/content/images/size/w600/2023/04/rychlost-po.png 600w, http://192.168.1.2:2368/content/images/size/w1000/2023/04/rychlost-po.png 1000w, http://192.168.1.2:2368/content/images/size/w1600/2023/04/rychlost-po.png 1600w, http://192.168.1.2:2368/content/images/size/w2400/2023/04/rychlost-po.png 2400w" sizes="(min-width: 720px) 720px"></div></div></div><figcaption>Před a po</figcaption></figure><h3 id="%F0%9F%94%97-m%C4%9Bn%C3%AD-se-adresa-str%C3%A1nky-serveru">🔗 Mění se adresa stránky serveru</h3><p>Další dlouho žádaná novinka, na detail serveru se nově lze dostat pomocí nového tvaru url adresy. např: <strong>mcservery.eu/server/jmeno-serveru</strong></p><p>dochází tak k sjednocení stylu odkazů, s již dříve změněnými url uživatelských profilů.</p><p>Přístup přes parametr id prozatím zůstává stále funkční. Bude ale upřednostněno použití nových adres se jménem serveru.</p><h3 id="%F0%9F%93%9D-oprava-zobrazen%C3%AD-popis%C5%AF-server%C5%AF">📝 Oprava zobrazení popisů serverů</h3><p>Již dříve bylo možné použití markdownu v popisu serveru, bohužel se ale některé styly nezobrazovali vždy správně. Tento problém by již měl být opraven.</p><p>Změnil jsem kód pro parsování Markdownu, nově tak na mcservery.eu používáme knihovnu <a href="https://showdownjs.com/?ref=192.168.1.2">Showdown.js</a> a popisy by se již měli u všech serveru zobrazovat správně, tedy pokud v popisu správně používáte Markdown.</p><figure class="kg-card kg-gallery-card kg-width-wide"><div class="kg-gallery-container"><div class="kg-gallery-row"><div class="kg-gallery-image"><img src="http://192.168.1.2:2368/content/images/2023/04/Sni-mek-obrazovky-2023-04-04-v-2.48.04.png" width="2000" height="1195" loading="lazy" alt srcset="http://192.168.1.2:2368/content/images/size/w600/2023/04/Sni-mek-obrazovky-2023-04-04-v-2.48.04.png 600w, http://192.168.1.2:2368/content/images/size/w1000/2023/04/Sni-mek-obrazovky-2023-04-04-v-2.48.04.png 1000w, http://192.168.1.2:2368/content/images/size/w1600/2023/04/Sni-mek-obrazovky-2023-04-04-v-2.48.04.png 1600w, http://192.168.1.2:2368/content/images/size/w2400/2023/04/Sni-mek-obrazovky-2023-04-04-v-2.48.04.png 2400w" sizes="(min-width: 720px) 720px"></div><div class="kg-gallery-image"><img src="http://192.168.1.2:2368/content/images/2023/04/Sni-mek-obrazovky-2023-04-04-v-2.48.33.png" width="2000" height="1195" loading="lazy" alt srcset="http://192.168.1.2:2368/content/images/size/w600/2023/04/Sni-mek-obrazovky-2023-04-04-v-2.48.33.png 600w, http://192.168.1.2:2368/content/images/size/w1000/2023/04/Sni-mek-obrazovky-2023-04-04-v-2.48.33.png 1000w, http://192.168.1.2:2368/content/images/size/w1600/2023/04/Sni-mek-obrazovky-2023-04-04-v-2.48.33.png 1600w, http://192.168.1.2:2368/content/images/size/w2400/2023/04/Sni-mek-obrazovky-2023-04-04-v-2.48.33.png 2400w" sizes="(min-width: 720px) 720px"></div></div></div></figure><p><strong>Je možné že bude u vašeho serveru nutné popis upravit, aby se zobrazoval tak jak má.</strong></p><h3 id="%E2%9C%85-ov%C4%9B%C5%99en%C3%BD-server">✅ Ověřený server</h3><p>Nově se u serverů kde je přidán odkaz na web, a zároveň máte na Vašem webu zpětný odkaz na mcservery.eu bude zobrazovat že je váš server ověřený.</p><p>Potvrzujeme tak že uživatel který přidal daný server na server list, má pod kontrolou doménu kterou uvedl u serveru.</p><p>Propojené domény s vaším účtem si můžete zkontrolovat také v nastavení uživatelského účtu.</p><figure class="kg-card kg-image-card"><img src="http://192.168.1.2:2368/content/images/2023/04/image-8.png" class="kg-image" alt loading="lazy" width="2000" height="544" srcset="http://192.168.1.2:2368/content/images/size/w600/2023/04/image-8.png 600w, http://192.168.1.2:2368/content/images/size/w1000/2023/04/image-8.png 1000w, http://192.168.1.2:2368/content/images/size/w1600/2023/04/image-8.png 1600w, http://192.168.1.2:2368/content/images/2023/04/image-8.png 2346w" sizes="(min-width: 720px) 720px"></figure><p>Více k ověřeným serverům: <a href="https://help.mcservery.eu/spravci-serveru/zpe-tny-odkaz/overeny-server?ref=192.168.1.2">https://help.mcservery.eu/spravci-serveru/zpe-tny-odkaz/overeny-server</a></p><h3 id="%F0%9F%97%B3%EF%B8%8F-upraven%C3%A9-hlasov%C3%A1n%C3%AD-pomoc%C3%AD-votifieru">🗳️ Upravené hlasování pomocí Votifieru</h3><p>Hlasování u serverů s nastaveným odměňováním za hlasování je nově uživatelsky přívětivější. Nick na serveru se upravuje v modalu, zároveň je defaultně nastaveno uživatelské jméno z webu, takže není nutné vyplňovat pokud se shoduje s přezdívkou na serveru pro který hlasujete.</p><p>Zároveň byla odstraněna chyba při editaci serveru, která mohla způsobit nefunkční propojení s Votifierem.</p><h3 id="%F0%9F%94%80-p%C5%99evod-serveru-vynucen%C3%A9-vlastnictv%C3%AD">🔀 Převod serveru / vynucené vlastnictví</h3><p>Pokud někdo přidal server, který je Váš, nebo jen chcete převést svůj server na jiného uživatele nově je to možné bez kontaktování podpory. Jedná se o ověření převodu vlastnictví serveru prostřednictvím kódu v motd serveru. Tuto funkci má mcservery.eu jako jediný server list na CZ/SK scéně.</p><p>K převodu serveru není nutná spolupráce uživatele, který server na server list přidal. Je však nutné mít přístup na FTP nebo mít jinou možnost, jak v administraci Vašeho hostingu změnit konfigurační soubor serveru.</p><figure class="kg-card kg-image-card kg-width-wide"><img src="http://192.168.1.2:2368/content/images/2023/04/test.mcservery.eu_account-claim.php.png" class="kg-image" alt loading="lazy" width="2000" height="1368" srcset="http://192.168.1.2:2368/content/images/size/w600/2023/04/test.mcservery.eu_account-claim.php.png 600w, http://192.168.1.2:2368/content/images/size/w1000/2023/04/test.mcservery.eu_account-claim.php.png 1000w, http://192.168.1.2:2368/content/images/size/w1600/2023/04/test.mcservery.eu_account-claim.php.png 1600w, http://192.168.1.2:2368/content/images/size/w2400/2023/04/test.mcservery.eu_account-claim.php.png 2400w" sizes="(min-width: 1200px) 1200px"></figure><p>Více k převodu serveru: <a href="https://help.mcservery.eu/spravci-serveru/prevod-vlastnictvi-serveru?ref=192.168.1.2">https://help.mcservery.eu/spravci-serveru/prevod-vlastnictvi-serveru</a></p><p><strong>Další změny:</strong></p><ul><li>Přes tagy na detailní stránce serveru se nově dá prokliknout na ostatní servery se stejnými tagy.</li><li>Drobné úpravy vzhledu stránek.</li><li>Odkaz z editace serveru zpět na stránku serveru.</li><li>Možnost kopírovat IP adresu serveru do schránky po kliknutí (zatím jen na detailu serveru).</li><li>Opět přepracovaný blog. Po 4x BTW 🤯</li><li>Oprava sitemap. Již se znovu automaticky generuje.</li></ul><p><strong>A to je pro zatím vše, v případě že by vám cokoliv nefungovalo nebo máte nějaký nápad, jak zlepšit mcservery.eu neváhejte se přidat na náš <a href="https://discord.mcservery.eu/?ref=192.168.1.2">Discord server.</a> Těším se na vaše připomínky a nápady jak tento projekt dál posouvat.</strong></p>
+            </section>
+        </article>
+
+                <div class="gh-read-next gh-canvas">
+                <section class="gh-pagehead">
+                    <h4 class="gh-pagehead-title">Read next</h4>
+                </section>
+
+                <div class="gh-topic gh-topic-grid">
+                    <div class="gh-topic-content">
+                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="../uzivatelske-rozhrani-nastaveni-uctu-a-dalsi-novinky-verze-2-1/index.html">
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Uživatelské rozhraní nastavení účtu a další novinky verze 2.1</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">Ahoj, během dnešní noci byla nasazena nová verze webu (2.1). Zde jsem si připravil krátký souhrn novinek.
+
+
+
+⚙️ Sjednocení vzhledu nastavení účtu
+
+
+Vzhled nastavení uživatelského účtu byl kompletně předělán. Stránka pro propojení účtu s Discordem byla integrována do nové sekce nastavení, stejně tak i změna hesla.
+
+Tato změna by měla</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">mcservery.eu</span>
+                <time class="gh-card-date" datetime="2023-02-11">11. úno 2023</time>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="../mcstats-zpusob-jak-analyzovat-vas-minecrat-server/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEyfHxzZXJ2ZXJ8ZW58MHx8fHwxNjgwNTUwNjMw&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                            https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEyfHxzZXJ2ZXJ8ZW58MHx8fHwxNjgwNTUwNjMw&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                            https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEyfHxzZXJ2ZXJ8ZW58MHx8fHwxNjgwNTUwNjMw&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEyfHxzZXJ2ZXJ8ZW58MHx8fHwxNjgwNTUwNjMw&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEyfHxzZXJ2ZXJ8ZW58MHx8fHwxNjgwNTUwNjMw&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEyfHxzZXJ2ZXJ8ZW58MHx8fHwxNjgwNTUwNjMw&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720"
+                    alt="MCStats - způsob, jak analyzovat Váš Minecraft server."
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">MCStats - způsob, jak analyzovat Váš Minecraft server.</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">Vybudovat komunitu na Minecraft serveru může být těžké, sám jsem před pár lety spravoval vlastní Minecraft server. Neměl jsem ponětí, odkud hráči přišli nebo jak dlouho na serveru zůstali.
+
+
+Tento problém ale již není pro správce Minecraft serverů neřešitelný, z těchto důvodů vzniká MCStats. Nový projekt pod server listem mcservery.</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">mcservery.eu</span>
+                <time class="gh-card-date" datetime="2022-12-21">21. pro 2022</time>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="../2-0-novy-design-i-funkce/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1619410283995-43d9134e7656?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEzfHxwcm9ncmFtbWluZ3xlbnwwfHx8fDE2ODA1NTAxMzY&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                            https://images.unsplash.com/photo-1619410283995-43d9134e7656?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEzfHxwcm9ncmFtbWluZ3xlbnwwfHx8fDE2ODA1NTAxMzY&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                            https://images.unsplash.com/photo-1619410283995-43d9134e7656?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEzfHxwcm9ncmFtbWluZ3xlbnwwfHx8fDE2ODA1NTAxMzY&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1619410283995-43d9134e7656?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEzfHxwcm9ncmFtbWluZ3xlbnwwfHx8fDE2ODA1NTAxMzY&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1619410283995-43d9134e7656?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEzfHxwcm9ncmFtbWluZ3xlbnwwfHx8fDE2ODA1NTAxMzY&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://images.unsplash.com/photo-1619410283995-43d9134e7656?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDEzfHxwcm9ncmFtbWluZ3xlbnwwfHx8fDE2ODA1NTAxMzY&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720"
+                    alt="2.0 Nový design i funkce"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">2.0 Nový design i funkce</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">Budou tomu již 2 roky co web mcservery.eu je na scéně Minecraft server listů. Web si již po té době zasloužil nový přívětivější design a také funkce které zvýší užitečnou hodnotu stránek.
+
+
+
+
+
+Úvodní stránka v novém designu.
+
+
+
+Co se změnilo na webu?
+
+
+Kromě toho že máme nový design stránek,</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">mcservery.eu</span>
+                <time class="gh-card-date" datetime="2022-06-07">7. čvn 2022</time>
+            </footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </div>
+
+        </main>
+
+
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+
+            <nav class="gh-foot-menu">
+                <ul class="nav">
+    <li class="nav-hlavni-stranka"><a href="https://mcservery.eu">Hlavní stránka</a></li>
+    <li class="nav-podpora"><a href="https://help.mcservery.eu">Podpora</a></li>
+    <li class="nav-discord"><a href="https://discord.mcservery.eu">Discord</a></li>
+    <li class="nav-stav-sluzeb"><a href="https://status.mcservery.eu">Stav služeb</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-copyright">
+                    mcservery.eu/blog © 2023. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/built/main.min.js@v=2761a83b65"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-core.min.js" integrity="sha512-x0aNx8s5fNTSk7iaTiSuUtz6vbT7gtGjk+Dotp17u4TmUEbJUwNMUFKxMBlnMQ1+N8E5exPHvRcF1yoxJ8b/iA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>
