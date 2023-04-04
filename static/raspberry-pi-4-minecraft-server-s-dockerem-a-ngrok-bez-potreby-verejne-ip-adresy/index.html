@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Raspberry Pi 4 Minecraft server s Dockerem a ngrok - Bez potřeby veřejné IP adresy</title>
+    <link rel="stylesheet" href="../assets/built/screen.css@v=2761a83b65.css">
+
+    <link rel="icon" href="http://192.168.1.2:2368/content/images/size/w256h256/2023/04/logo-1.PNG" type="image/png" />
+    <link rel="canonical" href="http://192.168.1.2:2368/raspberry-pi-4-minecraft-server-s-dockerem-a-ngrok-bez-potreby-verejne-ip-adresy/" />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+    
+    <meta property="og:site_name" content="mcservery.eu/blog" />
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Raspberry Pi 4 Minecraft server s Dockerem a ngrok - Bez potřeby veřejné IP adresy" />
+    <meta property="og:description" content="V tomto článku se dozvíte, jak vytvořit Minecraft server na Raspberry Pi 4 bez potřeby nastavovat port forwarding na vašem routeru a vlastnit veřejnou ip adresu. Místo toho použijeme ngrok k vytvoření bezpečného tunelu pro připojení z internetu.
+
+Na rozdíl od jiných možností, jak hostovat váš Minecraft server ať už" />
+    <meta property="og:url" content="http://192.168.1.2:2368/raspberry-pi-4-minecraft-server-s-dockerem-a-ngrok-bez-potreby-verejne-ip-adresy/" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1552283576-3ea3519bf12e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fHJhc3BiZXJyeSUyMFBpfGVufDB8fHx8MTY4MDYxNDgyNg&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000" />
+    <meta property="article:published_time" content="2023-04-04T16:01:44.000Z" />
+    <meta property="article:modified_time" content="2023-04-04T16:05:40.000Z" />
+    <meta property="article:tag" content="Články" />
+    
+    <meta property="article:publisher" content="https://www.facebook.com/ghost" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Raspberry Pi 4 Minecraft server s Dockerem a ngrok - Bez potřeby veřejné IP adresy" />
+    <meta name="twitter:description" content="V tomto článku se dozvíte, jak vytvořit Minecraft server na Raspberry Pi 4 bez potřeby nastavovat port forwarding na vašem routeru a vlastnit veřejnou ip adresu. Místo toho použijeme ngrok k vytvoření bezpečného tunelu pro připojení z internetu.
+
+Na rozdíl od jiných možností, jak hostovat váš Minecraft server ať už" />
+    <meta name="twitter:url" content="http://192.168.1.2:2368/raspberry-pi-4-minecraft-server-s-dockerem-a-ngrok-bez-potreby-verejne-ip-adresy/" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1552283576-3ea3519bf12e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fHJhc3BiZXJyeSUyMFBpfGVufDB8fHx8MTY4MDYxNDgyNg&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000" />
+    <meta name="twitter:label1" content="Written by" />
+    <meta name="twitter:data1" content="mcservery.eu" />
+    <meta name="twitter:label2" content="Filed under" />
+    <meta name="twitter:data2" content="Články" />
+    <meta name="twitter:site" content="@ghost" />
+    <meta property="og:image:width" content="2000" />
+    <meta property="og:image:height" content="1125" />
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "mcservery.eu/blog",
+        "url": "http://192.168.1.2:2368/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "http://192.168.1.2:2368/content/images/2023/04/logo.PNG",
+            "width": 60,
+            "height": 60
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "mcservery.eu",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://192.168.1.2:2368/content/images/2023/04/logo-2.PNG",
+            "width": 125,
+            "height": 125
+        },
+        "url": "http://192.168.1.2:2368/author/mcservery/",
+        "sameAs": [
+            "http://mcservery.eu"
+        ]
+    },
+    "headline": "Raspberry Pi 4 Minecraft server s Dockerem a ngrok - Bez potřeby veřejné IP adresy",
+    "url": "http://192.168.1.2:2368/raspberry-pi-4-minecraft-server-s-dockerem-a-ngrok-bez-potreby-verejne-ip-adresy/",
+    "datePublished": "2023-04-04T16:01:44.000Z",
+    "dateModified": "2023-04-04T16:05:40.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://images.unsplash.com/photo-1552283576-3ea3519bf12e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDV8fHJhc3BiZXJyeSUyMFBpfGVufDB8fHx8MTY4MDYxNDgyNg&ixlib=rb-4.0.3&q=80&w=2000",
+        "width": 2000,
+        "height": 1125
+    },
+    "keywords": "Články",
+    "description": "V tomto článku se dozvíte, jak vytvořit Minecraft server na Raspberry Pi 4 bez potřeby nastavovat port forwarding na vašem routeru a vlastnit veřejnou ip adresu. Místo toho použijeme ngrok k vytvoření bezpečného tunelu pro připojení z internetu.\n\nNa rozdíl od jiných možností, jak hostovat váš Minecraft server ať už pomocí AWS nebo klasického server hostingu se může jednat o tu z dlouhodobého hlediska nejlevnější metodu. To platí především pokud již doma máte nevyužívané Raspberry Pi nebo plánuje",
+    "mainEntityOfPage": "http://192.168.1.2:2368/raspberry-pi-4-minecraft-server-s-dockerem-a-ngrok-bez-potreby-verejne-ip-adresy/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 5.41" />
+    <link rel="alternate" type="application/rss+xml" title="mcservery.eu/blog" href="http://192.168.1.2:2368/rss/" />
+    
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/sodo-search.min.js" data-key="a07570b3176d7d3a5246ef98f9" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.1/umd/main.css" data-sodo-search="http://192.168.1.2:2368/" crossorigin="anonymous"></script>
+    <link href="http://192.168.1.2:2368/webmentions/receive/" rel="webmention" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/themes/prism-tomorrow.min.css" integrity="sha512-kSwGoyIkfz4+hMo5jkJngSByil9jxJPKbweYec/UgS+S1EgE45qm4Gea7Ks2oxQ7qiYyyZRn66A9df2lMtjIsw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-Regular.woff2) format("woff2");
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: italic;
+    font-weight: 400;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-Italic.woff2) format("woff2");
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 450;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-Medium.woff2) format("woff2");
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 500;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-SemiBold.woff2) format("woff2");
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 600;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-Bold.woff2) format("woff2");
+    font-display: swap
+}
+
+@font-face {
+    font-family: "Alliance No.1";
+    font-style: normal;
+    font-weight: 800;
+    src: url(https://github.blog/wp-content/themes/github-2021/assets/css/../fonts/alliance/Alliance-No-1-ExtraBold.woff2) format("woff2");
+    font-display: swap
+}
+    
+body {
+    font-family: "Alliance No.1" !important;
+}
+
+.gh-article-title {
+    font-family: "Alliance No.1" !important;
+	font-size: 48px !important;
+    line-height: 52px !important;
+    letter-spacing: -0.03em !important;
+    font-weight: 800 !important;
+}
+    
+.gh-article-tag {
+    font-size: 16px !important;
+    line-height: 24px !important;
+}
+.gh-card-footer {
+    font-family: ui-monospace, "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace !important;
+    line-height: 20px !important;
+}
+
+.gh-article-meta-inner {
+    font-family: ui-monospace, "SFMono-Regular", "SF Mono", "Menlo", "Consolas", "Liberation Mono", monospace !important;
+}
+</style><style>:root {--ghost-accent-color: #377dff;}</style>
+</head>
+
+<body class="post-template tag-clanky has-full-image is-head-transparent is-head-left-logo">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    
+                    <a class="gh-head-logo" href="http://192.168.1.2:2368">
+                            <img src="http://192.168.1.2:2368/content/images/2023/04/logo.PNG" alt="mcservery.eu/blog">
+                    </a>
+                    
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-hlavni-stranky"><a href="https://mcservery.eu">Hlavní stránky</a></li>
+    <li class="nav-blog"><a href="http://192.168.1.2:2368/">Blog</a></li>
+    <li class="nav-vsechny-clanky"><a href="http://192.168.1.2:2368/page/2/">Všechny články</a></li>
+    <li class="nav-o-nas"><a href="http://192.168.1.2:2368/about/">O nás</a></li>
+    <li class="nav-server-list"><a href="https://mcservery.eu/servers.php">Server list</a></li>
+    <li class="nav-discord"><a href="https://discord.mcservery.eu">Discord</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                        <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+            </div>
+        </div>
+    </header>
+
+    
+        <section class="gh-cover loading gh-outer">
+            <img
+                class="gh-cover-image"
+                srcset="https://images.unsplash.com/photo-1552283576-3ea3519bf12e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fHJhc3BiZXJyeSUyMFBpfGVufDB8fHx8MTY4MDYxNDgyNg&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                        https://images.unsplash.com/photo-1552283576-3ea3519bf12e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fHJhc3BiZXJyeSUyMFBpfGVufDB8fHx8MTY4MDYxNDgyNg&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                        https://images.unsplash.com/photo-1552283576-3ea3519bf12e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fHJhc3BiZXJyeSUyMFBpfGVufDB8fHx8MTY4MDYxNDgyNg&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                        https://images.unsplash.com/photo-1552283576-3ea3519bf12e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fHJhc3BiZXJyeSUyMFBpfGVufDB8fHx8MTY4MDYxNDgyNg&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                        https://images.unsplash.com/photo-1552283576-3ea3519bf12e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fHJhc3BiZXJyeSUyMFBpfGVufDB8fHx8MTY4MDYxNDgyNg&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                sizes="100vw"
+                src="https://images.unsplash.com/photo-1552283576-3ea3519bf12e?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDV8fHJhc3BiZXJyeSUyMFBpfGVufDB8fHx8MTY4MDYxNDgyNg&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200"
+                alt=""
+            >
+
+            <div class="gh-cover-content">
+                    <a class="gh-article-tag" href="http://192.168.1.2:2368/tag/clanky/">Články</a>
+
+                <h1 class="gh-cover-title">Raspberry Pi 4 Minecraft server s Dockerem a ngrok - Bez potřeby veřejné IP adresy</h1>
+            </div>
+        </section>
+
+<main class="gh-main">
+        <article class="gh-article post tag-clanky featured">
+            <header class="gh-article-header gh-canvas">
+                    <aside class="gh-article-sidebar">
+
+        <div class="gh-author-image-list">
+                <a class="gh-author-image" href="../author/mcservery/index.html">
+                        <img src="http://192.168.1.2:2368/content/images/2023/04/logo-2.PNG" alt="mcservery.eu">
+                </a>
+        </div>
+
+        <div class="gh-author-name-list">
+                <h4 class="gh-author-name">
+                    <a href="../author/mcservery/index.html">mcservery.eu</a>
+                </h4>
+                
+        </div>
+
+        <div class="gh-article-meta">
+            <div class="gh-article-meta-inner">
+                <time class="gh-article-date" datetime="2023-04-04">4. dub 2023</time>
+                    <span class="gh-article-meta-sep"></span>
+                    <span class="gh-article-length">7 min</span>
+            </div>
+        </div>
+
+    </aside>
+
+            </header>
+
+            <section class="gh-content gh-canvas">
+                <p><strong>V tomto článku se dozvíte, jak vytvořit Minecraft server na Raspberry Pi 4 bez potřeby nastavovat port forwarding na vašem routeru a vlastnit veřejnou ip adresu. Místo toho použijeme <a href="https://ngrok.com/?ref=192.168.1.2">ngrok</a> k vytvoření bezpečného tunelu pro připojení z internetu.</strong></p><p>Na rozdíl od jiných možností, jak hostovat váš Minecraft server ať už pomocí AWS nebo klasického server hostingu se může jednat o tu z dlouhodobého hlediska nejlevnější metodu. To platí především pokud již doma máte nevyužívané Raspberry Pi nebo plánujete provozovat menší server dlouhodobě. Pojďme se podívat jak na to.</p><h2 id="co-budeme-pot%C5%99ebovat">Co budeme potřebovat:</h2><ul><li>Počítač se systémem Windows, Mac nebo Linux.</li><li>Raspberry pi 4 (doporučuje se alespoň model s 2GB, záleží však na tom, kolik lidí bude na serveru hrát).</li><li>16GB nebo větší micro sd kartu.</li><li>Ethernetový kabel.</li><li>Napájecí adaptér pro Pi</li></ul><p>Nejprve nainstalujte operační systém na Vaše Raspberry Pi. K tomu budeme potřebovat stáhnout oficiální <a href="https://www.raspberrypi.com/software/?ref=192.168.1.2">Raspberry Pi Imager</a>.</p><figure class="kg-card kg-image-card"><img src="http://192.168.1.2:2368/content/images/2023/04/image-11.png" class="kg-image" alt loading="lazy" width="945" height="623" srcset="http://192.168.1.2:2368/content/images/size/w600/2023/04/image-11.png 600w, http://192.168.1.2:2368/content/images/2023/04/image-11.png 945w" sizes="(min-width: 720px) 720px"></figure><p>Připojte k počítači SD kartu. Zvolte operační systém, který chcete nainstalovat, vyberte správnou SD kartu, kterou jste připojili (ujistěte se, že je to ta správná!), a poté stiskněte tlačítko pro zápis. Nechte proces zápisu dokončit a ignorujte všechna okna Průzkumníka souborů, která se mohou objevit.</p><p>Pro tento tutoriál zvolím verzi Raspberry Pi OS lite 32-bit. Verze lite neobsahuje desktopové prostředí, což pro účely tohoto návodu není potřeba, ale pokud chcete, můžete si nainstalovat verzi s desktopovým prostředím. Pokud máte model Raspberry Pi s kapacitou 8GB, vyberte 64-bitovou verzi OS, abyste mohli plně využít potenciálu RAM vašeho Raspberry Pi.</p><!--kg-card-begin: markdown--><p>Jakmile máte obraz systému hotový, ignorujte případné varování systému Windows, které se může objevit a tvrdit, že je potřeba disk s novým systémem naformátovat. Vytáhněte a znovu připojte SD kartu k počítači, otevřete disk označený jako &quot;boot&quot; a vytvořte na kartě soubor nazvaný &quot;ssh&quot; (bez přípony). U Windows to lze udělat vytvořením textového souboru a odstraněním přípony .txt. Pokud používáte Mac nebo Linux stačí ve složce boot otevřít terminál a použít příkaz: <code>touch ssh</code></p>
+<!--kg-card-end: markdown--><p>Vložte kartu SD do Raspberry Pi, připojte Ethernetový a napájecí kabel. Počkejte minutu na spuštění a nalezení IP adresy. Můžete zjistit IP adresu tím, že navštívíte webové rozhraní vašeho routeru. Pokud nevíte, jak najít IP adresu vašeho routeru, doporučuji tento vynikající <a href="https://www.pcmag.com/how-to/how-to-access-your-wi-fi-routers-settings?ref=192.168.1.2">článek</a>. Jakmile se úspěšně přihlásíte ke svému routeru, zkontrolujte připojená zařízení.</p><!--kg-card-begin: markdown--><p>Jakmile získáte IP adresu Raspberry Pi, připojte se k němu pomocí protokolu SSH. Pokud používáte operační systém Mac nebo Linux, můžete použít následující příkaz z terminálu: <code>ssh pi@&lt;ip-adresa&gt;</code>, kde <ip-adresa> je IP adresa Raspberry Pi. Pokud používáte systém Windows, můžete použít software jako Putty, vložit IP adresu Raspberry Pi do pole &quot;Adresa&quot; a kliknout na tlačítko &quot;Připojit&quot;.</ip-adresa></p>
+<!--kg-card-end: markdown--><p>Výchozí heslo je "raspberry". Okamžitě po přihlášení změňte výchozí heslo zadáním příkazu passwd a následováním pokynů.</p><p>Nyní aktualizujte Raspberry Pi příkazy sudo apt update &amp;&amp; sudo apt upgrade. Toto může trvat několik minut. Po dokončení aktualizace restartujte Raspberry Pi pomocí příkazu sudo reboot now a počkejte minutu na jeho opětovné spuštění. Po opětovném připojení se můžete přesunout na další krok.</p><h2 id="instalace-pot%C5%99ebn%C3%BDch-bal%C3%AD%C4%8Dk%C5%AF">Instalace potřebných balíčků</h2><p>Nyní když již máme nakonfigurované Raspberry Pi můžeme pokračovat dál a nainstalovat samotná Minecraft server. K tomu použijeme tento <a href="https://github.com/itzg/docker-minecraft-server?ref=192.168.1.2">Docker image</a> k sestavení našeho serveru. Stejný Docker image můžete použít i pokud byste instalovali Váš server například na AWS.</p><p>Budeme potřeba nainstalovat pár věcí. Celkově to bude trvat přibližně 15 minut v závislosti na vašem internetovém připojení.</p><!--kg-card-begin: html--><p>Nainstalujte javu příkazem: <code>sudo apt install default-jdk</code></p>
+
+<p>Stáhněte a nainstalujte libseccomp2:</p>
+<code>wget http://ftp.de.debian.org/debian/pool/main/libs/libseccomp/libseccomp2_2.4.4-1~bpo10+1_armhf.deb</code>
+
+<p>Poté nainstalujte stažený soubor: <code>sudo dpkg -i libseccomp2_2.5.1-1~bpo10+1_armhf.deb</code></p><!--kg-card-end: html--><p>Toto je nejaktuálnější verze v době psaní tohoto tutoriálu. Můžete ověřit nejnovější verzi a odkazy na zrcadla pomocí tohoto odkazu: <a href="https://packages.debian.org/buster-backports/libseccomp2?ref=192.168.1.2">https://packages.debian.org/buster-backports/libseccomp2</a></p><p>Nakonec potřebujeme samotný Docker a pro to spusťte následující příkazy postupně jeden po druhém:</p><!--kg-card-begin: html--><ul>
+    <li><code>curl -fsSL https://get.docker.com -o get-docker.sh</code></li>
+    <li><code>sh ./get-docker.sh</code></li>
+    <li><code>sudo apt-get install -y libffi-dev libssl-dev python3 python3-pip</code></li>
+    <li><code>sudo apt-get remove python-configparser</code></li>
+    <li><code>sudo pip3 -v install docker-compose</code></li>
+</ul><!--kg-card-end: html--><p>Přiřaďte oprávnění uživateli pi ke spuštění příkazů dockeru:</p><!--kg-card-begin: html--><code>sudo usermod -aG docker pi</code><!--kg-card-end: html--><!--kg-card-begin: html--><p>Poté restartujte Raspberry Pi (<code>sudo reboot now</code>) a přihlaste se znovu. Nyní bychom měli být připraveni nastavit server.</p><!--kg-card-end: html--><h2 id="spu%C5%A1t%C4%9Bn%C3%AD-serveru">Spuštění serveru</h2><p>Nejprve vytvořte adresář pro Minecraft server a pomocí příkazu cd do něj přejděte:</p><!--kg-card-begin: html--><code>mkdir minecraft-server && cd minecraft-server</code>
+<p>Vytvořte soubor docker-compose.yml: <code>sudo nano docker-compose.yml</code></p>
+
+<p>Do souboru zkopírujte následující obsah:
+    <pre>
+    minecraft-server:
+    image: itzg/minecraft-server
+    container_name: minecraft-server
+
+    ports:
+        - "25565:25565"
+
+    environment:
+        MEMORY: 1G
+        EULA: "TRUE"
+    tty: true
+    stdin_open: true
+    restart: always
+
+    volumes:
+        # attach a directory relative to the directory containing this compose file
+        - ./minecraft-data:/data
+    </pre>
+</p><!--kg-card-end: html--><p>Mějte na paměti, že tímto souhlasíte s licenčními podmínkami Minecraftu. Pro ukončení souboru stiskněte ctrl+x, poté y a enter.</p><p>Pokud chcete vidět, jaké další možnosti a parametry můžete použít, podívejte se na repozitář na <a href="https://github.com/itzg/docker-minecraft-server?ref=192.168.1.2">Githubu</a>. Jsou tam možnosti, jak spustit i jiný druh Minecraft serveru (Bukkit/Spigot, Paper a mnoho dalších).</p><p>Docker-compose.yml soubor, který jsme právě vytvořili, říká Dockeru, jak a jaký obraz postavit. První řádek udává název kontejneru, který může být cokoliv, ale my jsme zvolili minecraft-server, aby byl snadno identifikovatelný. Tento název je také znovu specifikován na řádku 3. Další důležité parametry jsou MEMORY pod environment a sekce volumes.</p><p>Paměť je nastavena na 1 gigabyte, ale můžete ji změnit, například tím, že namísto 1G napíšete 2G. Ujistěte se však, že je nižší než celková paměť vašeho Raspberry.</p><!--kg-card-begin: markdown--><p>Pro spuštění serveru stačí zadat příkaz <code>docker-compose up -d</code>. Docker poté stáhne soubory obrazu a spustí kontejner. Jakmile se dokončí stahování, můžete zkontrolovat stav svého Docker kontejneru pomocí příkazu <code>docker logs -f minecraft-server</code>. Pokud vidíte startovací protokol minecraft serveru, funguje to! Pro ukončení zobrazení protokolu použijte klávesovou zkratku ctrl+c.</p>
+<p>Také zjistíte, že byla vytvořena složka s názvem <code>minecraft-data</code>. Toto je umístění vašich konfiguračních souborů serveru.</p>
+<p>Pro ověření, zda se k serveru můžete připojit, otevřete aplikaci minecraft a do pole pro přidání nového serveru zadejte IP adresu vašeho raspberry pi. Pokud se server objeví v seznamu, funguje to jak má!</p>
+<p>Zpřístupnění Vašeho serveru mimo lokální síť<br>
+Nejprve budete potřebovat účet pro použití ngrok. Zaregistrujte se <a href="https://ngrok.com/?ref=192.168.1.2">zde</a>.</p>
+<p>Jakmile máte účet, vraťte se zpět na obrazovku Raspberry Pi, a přejděte se zpět do domovského adresáře pomocí příkazu <code>cd ~</code> a poté stáhněte a rozbalte ngrok pomocí následujících příkazů:</p>
+<pre><code>wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-arm.tgz
+tar -xvzf ngrok-stable-linux-arm.tgz
+</code></pre>
+<p>Ověřte, zda je nainstalován, zadáním příkazu <code>./ngrok help</code>. Pokud dostanete seznam příkazů, které můžete použít s ngrok, pak byl nainstalován správně.</p>
+<p>Nastavte ngrok k použití autentifikačního tokenu, který jste získali při registraci, pomocí následujícího příkazu:<br>
+<code>./ngrok authtoken TOKEN</code></p>
+<!--kg-card-end: markdown--><p>Token naleznete v ngrok dashboardu po přihlášení do účtu. Najdete ho na kartě "Auth" nebo přejdete na tuto stránku: <a href="https://dashboard.ngrok.com/get-started/your-authtoken?ref=192.168.1.2">https://dashboard.ngrok.com/get-started/your-authtoken</a>.</p><!--kg-card-begin: markdown--><p>Jakmile spustíte příkaz, bude vytvořen soubor <code>ngrok.yml</code> obsahující váš token. Pro nastavení tunelu budete muset upravit konfigurační soubor <code>ngrok.yml</code>, který byl právě vytvořen. Měl by se nacházet někde jako <code>/home/pi/.ngrok2/ngrok.yml</code>.</p>
+<p>Otevřete soubor pomocí příkazu nano:<br>
+<code>sudo nano /home/pi/.ngrok2/ngrok.yml</code></p>
+<!--kg-card-end: markdown--><p>A přidejte následující kód ZA Váš authtoken:</p><!--kg-card-begin: markdown--><pre><code>tunnels:
+  minecraft-server:
+    proto: tcp
+    addr: 25565
+    bind-tls: true
+    console_ui: false
+</code></pre>
+<!--kg-card-end: markdown--><p>Pro opuštění souboru stiskněte Ctrl + X, poté Y a nakonec Enter.</p><p>Tímto jste nastavili tunel na použití protokolu TCP, otevřený na portu 25565, což je port Minecraftu. Také jste tunelu pojmenovali minecraft-server.</p><p>Teď už jen vytvoříte soubor, který povolí ngrok jako službu, takže bude spuštěn při spuštění Raspberry Pi a nebude se zobrazovat v popředí, když ngrok běží.</p><!--kg-card-begin: markdown--><p><code>sudo nano /etc/systemd/system/ngrok-client.service</code></p>
+<p>Vložtě následující obsah:</p>
+<pre><code>[Unit]
+Description=ngrok client
+After=network.target
+
+[Service]
+ExecStart=/home/pi/ngrok start --all -config /home/pi/.ngrok2/ngrok.yml
+Restart=on-abort
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Jako vždy stiskněte ctrl+x, následováno y a poté enter pro uložení a ukončení.</p>
+<p>Následující příkazy slouží k povolení ngrok jako služby:</p>
+<pre><code>sudo systemctl daemon-reload
+sudo systemctl enable ngrok-client
+sudo systemctl start ngrok-client
+</code></pre>
+<p>Pro ověření, zda ngrok funguje, spusťte následující příkaz: <code>systemctl status ngrok-client.service</code>. Pokud vidíte, že je služba povolena (enabled), tak funguje správně!</p>
+<!--kg-card-end: markdown--><p>Pro získání odkazu, který můžete sdílet s přáteli, aby se připojili k serveru, navštivte stránku stavu ngrok.</p><p>Zde uvidíte všechny své tunely <a href="https://dashboard.ngrok.com/cloud-edge/endpoints?ref=192.168.1.2">https://dashboard.ngrok.com/cloud-edge/endpoints</a></p><p>Odkaz pro tunel má předponu tcp://. Při vkládání do adresního řádku serveru v Minecraftu je třeba tuto předponu odstranit.</p><p><strong>Hotovo! Server běží a ngrok je nakonfigurován. Můžete se odpojit od ssh relace a užívat si Minecraft! Pro aktualizaci serveru na nejnovější verzi Minecraftu stačí restartovat Raspberry Pi (pokud jste server nakonfigurovali podle tohoto návodu). Mějte na paměti, že názvy ngrok tunelů se někdy mění, takže po každém restartu systému zkontrolujte stránku stavu ngrok, abyste získali aktualizovanou adresu serveru. Pokud vlastníte doménu, můžete si jí nastavit jako adresu serveru pomocí tohoto <a href="https://ngrok.com/docs/guides/how-to-set-up-a-custom-domain/?ref=192.168.1.2">návodu</a>.</strong></p>
+            </section>
+        </article>
+
+                <div class="gh-read-next gh-canvas">
+                <section class="gh-pagehead">
+                    <h4 class="gh-pagehead-title">Read next</h4>
+                </section>
+
+                <div class="gh-topic gh-topic-grid">
+                    <div class="gh-topic-content">
+                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="../jak-si-vede-nejoblibenejsi-sandboxova-hra-v-roce-2021/index.html">
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Jak si vede nejoblíbenější sandboxová hra v roce 2021?</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">I když je to již 12 let od počátečního vydání Minecraftu, Mojang udržuje hru na stavění bloků ve skvělé kondici, přičemž rok 2020 je obzvláště skvělým rokem. V loňském roce jsme viděli největší aktualizaci Minecraftu od chvíle, kdy byla poprvé spuštěna ve formě The Nether, a o necelých pár měsíců</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">mcservery.eu</span>
+                <time class="gh-card-date" datetime="2021-02-11">11. úno 2021</time>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="../minecraft-earth-konci-hra-neustala-pandemii/index.html">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDJ8fG1pbmVjcmFmdCUyMGVhcnRofGVufDB8fHx8MTY4MDU0OTIyOQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;300 300w,
+                            https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDJ8fG1pbmVjcmFmdCUyMGVhcnRofGVufDB8fHx8MTY4MDU0OTIyOQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720 720w,
+                            https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDJ8fG1pbmVjcmFmdCUyMGVhcnRofGVufDB8fHx8MTY4MDU0OTIyOQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;960 960w,
+                            https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDJ8fG1pbmVjcmFmdCUyMGVhcnRofGVufDB8fHx8MTY4MDU0OTIyOQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;1200 1200w,
+                            https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDJ8fG1pbmVjcmFmdCUyMGVhcnRofGVufDB8fHx8MTY4MDU0OTIyOQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;2000 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://images.unsplash.com/photo-1587573089734-09cb69c0f2b4?crop&#x3D;entropy&amp;cs&#x3D;tinysrgb&amp;fit&#x3D;max&amp;fm&#x3D;jpg&amp;ixid&#x3D;MnwxMTc3M3wwfDF8c2VhcmNofDJ8fG1pbmVjcmFmdCUyMGVhcnRofGVufDB8fHx8MTY4MDU0OTIyOQ&amp;ixlib&#x3D;rb-4.0.3&amp;q&#x3D;80&amp;w&#x3D;720"
+                    alt="Minecraft Earth končí. Hra neustála pandemii"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Minecraft Earth končí. Hra neustála pandemii</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">Před více než rokem Microsoft představil hru Minecraft Earth, ambiciózní projekt, který měl být konkurencí pro Pokémon Go. To se mu ale nepovedlo a navíc se musel potýkat s pandemii koronaviru. Ta brání hráčům v pobytu venku a tím pádem i samotné hraní. Vývojáři sice vydali několik updatů, aby hra</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">mcservery.eu</span>
+                <time class="gh-card-date" datetime="2021-01-10">10. led 2021</time>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="../minecraft-s-ray-tracingem-oficialne-vychazi-pro-windows-10-a-je-k-dispozici-vsem/index.html">
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Minecraft s ray tracingem oficiálně vychází pro Windows 10 a je k dispozici všem</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">Minecraft je ve světě videoher nepochybně klasikou a s každou aktualizací stále sbírá více a více hráčů. Vizuál hry se však dramaticky nezměnil od vydání Minecraftu v roce 2009, s výrazným vizuálním stylem, který dobře zapadá do jakéhokoli zařízení a jakéhokoli hardwaru. Nyní, přinejmenším v systému Windows 10, je Minecraft</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">mcservery.eu</span>
+                <time class="gh-card-date" datetime="2020-12-08">8. pro 2020</time>
+            </footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </div>
+
+        </main>
+
+
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+
+            <nav class="gh-foot-menu">
+                <ul class="nav">
+    <li class="nav-hlavni-stranka"><a href="https://mcservery.eu">Hlavní stránka</a></li>
+    <li class="nav-podpora"><a href="https://help.mcservery.eu">Podpora</a></li>
+    <li class="nav-discord"><a href="https://discord.mcservery.eu">Discord</a></li>
+    <li class="nav-stav-sluzeb"><a href="https://status.mcservery.eu">Stav služeb</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-copyright">
+                    mcservery.eu/blog © 2023. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/built/main.min.js@v=2761a83b65"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/components/prism-core.min.js" integrity="sha512-x0aNx8s5fNTSk7iaTiSuUtz6vbT7gtGjk+Dotp17u4TmUEbJUwNMUFKxMBlnMQ1+N8E5exPHvRcF1yoxJ8b/iA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.min.js" integrity="sha512-UOoJElONeUNzQbbKQbjldDf9MwOHqxNz49NNJJ1d90yp+X9edsHyJoAs6O4K19CZGaIdjI5ohK+O2y5lBTW6uQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</body>
+
+</html>
