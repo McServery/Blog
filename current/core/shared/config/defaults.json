@@ -176,11 +176,15 @@
     },
     "portal": {
         "url": "https://cdn.jsdelivr.net/ghost/portal@~{version}/umd/portal.min.js",
-        "version": "2.26"
+        "version": "2.30"
     },
     "sodoSearch": {
         "url": "https://cdn.jsdelivr.net/ghost/sodo-search@~{version}/umd/sodo-search.min.js",
         "styles": "https://cdn.jsdelivr.net/ghost/sodo-search@~{version}/umd/main.css",
+        "version": "1.1"
+    },
+    "announcementBar": {
+        "url": "https://cdn.jsdelivr.net/ghost/announcement-bar@~{version}/umd/announcement-bar.min.js",
         "version": "1.1"
     },
     "comments": {
@@ -189,8 +193,8 @@
         "version": "0.12"
     },
     "editor": {
-        "url": "https://unpkg.com/@tryghost/koenig-lexical@~{version}/dist/koenig-lexical.umd.js",
-        "version": "0.0"
+        "url": "https://cdn.jsdelivr.net/ghost/koenig-lexical@~{version}/dist/koenig-lexical.umd.js",
+        "version": "0.1"
     },
     "tenor": {
         "googleApiKey": null,

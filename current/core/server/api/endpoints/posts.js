@@ -15,7 +15,9 @@ const allowedIncludes = [
     'count.clicks',
     'sentiment',
     'count.positive_feedback',
-    'count.negative_feedback'
+    'count.negative_feedback',
+    'post_revisions',
+    'post_revisions.author'
 ];
 const unsafeAttrs = ['status', 'authors', 'visibility'];
 
@@ -68,7 +70,7 @@ module.exports = {
                 type: 'csv',
                 value() {
                     const datetime = (new Date()).toJSON().substring(0, 10);
-                    return `posts.${datetime}.csv`;
+                    return `post-analytics.${datetime}.csv`;
                 }
             }
         },
@@ -174,6 +176,7 @@ module.exports = {
             'email_segment',
             'newsletter',
             'force_rerender',
+            'save_revision',
             // NOTE: only for internal context
             'forUpdate',
             'transacting'
@@ -200,6 +203,54 @@ module.exports = {
             this.headers.cacheInvalidate = postsService.handleCacheInvalidation(model);
 
             return model;
+        }
+    },
+
+    bulkEdit: {
+        statusCode: 200,
+        headers: {
+            cacheInvalidate: true
+        },
+        options: [
+            'filter'
+        ],
+        data: [
+            'action',
+            'meta'
+        ],
+        validation: {
+            data: {
+                action: {
+                    required: true
+                }
+            },
+            options: {
+                filter: {
+                    required: true
+                }
+            }
+        },
+        permissions: {
+            method: 'edit'
+        },
+        async query(frame) {
+            return await postsService.bulkEdit(frame.data.bulk, frame.options);
+        }
+    },
+
+    bulkDestroy: {
+        statusCode: 200,
+        headers: {
+            cacheInvalidate: true
+        },
+        options: [
+            'filter'
+        ],
+        permissions: {
+            method: 'destroy'
+        },
+        async query(frame) {
+            return await postsService.bulkDestroy(frame.options);
         }
     },
 

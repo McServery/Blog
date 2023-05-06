@@ -15,13 +15,11 @@ const messages = {
 
 // flags in this list always return `true`, allows quick global enable prior to full flag removal
 const GA_FEATURES = [
-    'suppressionList',
-    'sourceAttribution',
-    'memberAttribution',
     'audienceFeedback',
     'themeErrorsNotification',
     'emailErrors',
-    'outboundLinkTagging'
+    'outboundLinkTagging',
+    'announcementBar'
 ];
 
 // NOTE: this allowlist is meant to be used to filter out any unexpected
@@ -36,9 +34,13 @@ const ALPHA_FEATURES = [
     'urlCache',
     'migrateApp',
     'lexicalEditor',
+    'lexicalMultiplayer',
     'websockets',
     'stripeAutomaticTax',
-    'makingItRain'
+    'makingItRain',
+    'postHistory',
+    'postDiffing',
+    'imageEditor'
 ];
 
 module.exports.GA_KEYS = [...GA_FEATURES];
